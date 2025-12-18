@@ -58,9 +58,17 @@ docker run -d \
 
 ### Custom Configuration File
 
-For advanced configuration, create a `config.local.php` file and mount it into the container:
+For advanced configuration, create a `config.local.php` file and mount it into the container.
 
-1. **Create `config.local.php`:**
+A complete example configuration file is provided as `config.docker.example.php` in the repository.
+
+1. **Copy and customize the example configuration:**
+   ```bash
+   cp config.docker.example.php config.local.php
+   # Edit config.local.php with your settings
+   ```
+
+2. **Example configuration:**
    ```php
    <?php
    namespace KaraDAV;
@@ -72,7 +80,7 @@ For advanced configuration, create a `config.local.php` file and mount it into t
    const ERRORS_SHOW = false;
    ```
 
-2. **Update `docker-compose.yml` to mount the config:**
+3. **Update `docker-compose.yml` to mount the config:**
    ```yaml
    volumes:
      - ./data:/var/www/html/data
@@ -381,7 +389,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 8080
 ## Included Features
 
 The Docker image includes:
-- ✅ PHP 8.2 with all required extensions
+- ✅ PHP 8.3 with all required extensions
 - ✅ Apache web server with mod_rewrite and headers
 - ✅ SQLite3 support
 - ✅ GD and ImageMagick for thumbnails

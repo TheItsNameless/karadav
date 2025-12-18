@@ -13,7 +13,10 @@ const ROOT = __DIR__;
 
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
-    require_once ROOT . '/lib/' . $class . '.php';
+    $file = ROOT . '/lib/' . $class . '.php';
+    if (file_exists($file)) {
+        require_once $file;
+    }
 });
 
 ErrorManager::setLogFile(ROOT . '/error.log');

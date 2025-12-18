@@ -1,5 +1,5 @@
 # KaraDAV Docker Image
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -21,8 +21,9 @@ RUN docker-php-ext-install -j$(nproc) \
     simplexml \
     gd
 
-# Install ImageMagick extension via PECL
-RUN pecl install imagick && docker-php-ext-enable imagick
+# Install ImageMagick extension via PECL (optional, for enhanced thumbnails)
+# Try to install, but don't fail if not available (GD can handle basic thumbnails)
+RUN (pecl install imagick && docker-php-ext-enable imagick) || echo "ImageMagick extension not available, using GD only"
 
 # Enable Apache modules
 RUN a2enmod rewrite headers

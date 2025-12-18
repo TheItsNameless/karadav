@@ -10,7 +10,7 @@ services:
       # Data persistence - SQLite database and user files
       - ./data:/var/www/html/data
       # Optional: Mount custom configuration (read-only)
-      # Uncomment the line below and create config.local.php with your settings
+      # Copy config.docker.example.php to config.local.php, customize it, then uncomment:
       # - ./config.local.php:/var/www/html/config.local.php:ro
     environment:
       - TZ=UTC
