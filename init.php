@@ -97,7 +97,7 @@ define('KaraDAV\ENABLE_THUMBNAILS_OK', $th);
 Translate::registerDomain('*', null);
 
 // Define fallback translation function if not already defined
-if (!function_exists(__NAMESPACE__ . '\_')) {
+if (!function_exists(__NAMESPACE__ . '\\_')) {
 	function _($str) {
 		return Translate::gettext($str);
 	}
@@ -169,7 +169,7 @@ else {
 	$db->upgradeVersion();
 }
 
-if (!function_exists(__NAMESPACE__ . '\http_log')) {
+if (!function_exists(__NAMESPACE__ . '\\http_log')) {
 	function http_log(string $message, ...$params): void
 	{
 		if (!LOG_FILE) {
