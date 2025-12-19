@@ -413,12 +413,6 @@ Available tags:
 - `main` - Latest commit on main branch
 - `sha-abc123` - Specific commit
 
-### From Docker Hub (if configured)
-
-```bash
-docker pull username/karadav:latest
-```
-
 ## Building from Source
 
 If you want to build the image yourself:
