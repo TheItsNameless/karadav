@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  karadav:
+    build: .
+    container_name: karadav
+    ports:
+      - "8080:80"
+    volumes:
+      # Data persistence - SQLite database and user files
+      - ./data:/var/www/html/data
+      # Optional: Mount custom configuration (read-only)
+      # Copy config.docker.example.php to config.local.php, customize it, then uncomment:
+      # - ./config.local.php:/var/www/html/config.local.php:ro
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
