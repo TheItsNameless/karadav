@@ -6,7 +6,7 @@ use KD2\ErrorManager;
 use KD2\Translate;
 use KD2\Smartyer;
 
-require __DIR__ . '/../init.php';
+require_once __DIR__ . '/../init.php';
 
 $users = new Users;
 $logged_user = $users->current();

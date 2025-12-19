@@ -169,16 +169,18 @@ else {
 	$db->upgradeVersion();
 }
 
-function http_log(string $message, ...$params): void
-{
-	if (!LOG_FILE) {
-		return;
-	}
+if (!function_exists(__NAMESPACE__ . '\http_log')) {
+	function http_log(string $message, ...$params): void
+	{
+		if (!LOG_FILE) {
+			return;
+		}
 
-	$msg = vsprintf($message, $params) . "\n\n";
+		$msg = vsprintf($message, $params) . "\n\n";
 
-	if (LOG_FILE) {
-		file_put_contents(LOG_FILE, $msg, FILE_APPEND);
+		if (LOG_FILE) {
+			file_put_contents(LOG_FILE, $msg, FILE_APPEND);
+		}
 	}
 }
 
