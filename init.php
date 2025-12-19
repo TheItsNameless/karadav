@@ -93,6 +93,16 @@ if (ERRORS_REPORT_URL) {
 $th = ENABLE_THUMBNAILS && (class_exists('imagick') || function_exists('imagecreatefromwebp'));
 define('KaraDAV\ENABLE_THUMBNAILS_OK', $th);
 
+// Initialize translation system
+Translate::registerDomain('*', null);
+
+// Define fallback translation function if not already defined
+if (!function_exists(__NAMESPACE__ . '\_')) {
+	function _($str) {
+		return Translate::gettext($str);
+	}
+}
+
 // Create random secret key
 if (!defined('KaraDAV\SECRET_KEY')) {
 	$cfg = file_exists($cfg_file) ? file_get_contents($cfg_file) : "<?php\nnamespace KaraDAV;\n\n";

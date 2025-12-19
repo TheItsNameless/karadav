@@ -742,14 +742,50 @@ input.upload {
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-	 	--bg-color: #000;
-		--fg-color: #fff;
-		--g1-color: #222;
-		--g2-color: #555;
-		--g3-color: #777;
-		--link-color: #99f;
-		--visited-color: #ccf;
-		--active-color: orange;
+	:root {
+		--bg-color: #1a1a1a;
+		--fg-color: #e0e0e0;
+		--g1-color: #2a2a2a;
+		--g2-color: #3a3a3a;
+		--g3-color: #999;
+		--link-color: #88ccff;
+		--visited-color: #aaddff;
+		--active-color: #ff9933;
+	}
+
+	/* Fix hardcoded colors for dark mode */
+	thead button {
+		color: #aaa;
+	}
+
+	td.size, td.date {
+		color: #aaa;
+	}
+
+	tbody tr:has(.check input:checked) {
+		background: #3a2a1a;
+	}
+
+	th .icon b {
+		background: #333;
+		color: #e0e0e0;
+		border: 1px solid #666;
+	}
+
+	.dir th .icon, .icon.mkdir {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="%2388ccff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"/></svg>');
+	}
+
+	.parent th .icon {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="%2388ccff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 11l-4 4l4 4m-4-4h11a4 4 0 0 0 0-8h-1"/></svg>');
+	}
+
+	iframe, iframe body, .md_preview {
+		background-color: #1a1a1a;
+		color: #e0e0e0;
+	}
+
+	.loading {
+		background: #2a2a2a no-repeat center center;
 	}
 }
